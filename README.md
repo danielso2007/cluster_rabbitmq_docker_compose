@@ -1,9 +1,14 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+![CommonsRestAPI](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/workflows/CommonsRestAPI/badge.svg)
+![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/cluster_rabbitmq_docker_compose.svg)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/cluster_rabbitmq_docker_compose.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/pulls)
+[![GitHub issues](https://img.shields.io/github/issues/danielso2007/cluster_rabbitmq_docker_compose.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/issues?q=is%3Aopen+is%3Aissue)
+![GitHub last commit](https://img.shields.io/github/last-commit/danielso2007/cluster_rabbitmq_docker_compose.svg)
+[![GitHub issue/pull request author](https://img.shields.io/github/issues/detail/u/danielso2007/cluster_rabbitmq_docker_compose/1.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/pulls)
+![GitHub contributors](https://img.shields.io/github/contributors/danielso2007/cluster_rabbitmq_docker_compose.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/danielso2007/cluster_rabbitmq_docker_compose.svg)
+[![GitHub](https://img.shields.io/github/license/danielso2007/cluster_rabbitmq_docker_compose.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose)
+[![GitHub All Releases](https://img.shields.io/github/downloads/danielso2007/cluster_rabbitmq_docker_compose/total.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/archive/master.zip)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 <!-- PROJECT LOGO -->
 <br />
