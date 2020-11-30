@@ -1,0 +1,17 @@
+{
+  "name": "cluster_rabbitmq_docker_compose",
+  "version": "0.0.0",
+  "description": "Exemplo de clusterização do RabbitMQ com docker e proxy reverso",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "git": "https://github.com/danielso2007/cluster_rabbitmq_docker_compose",
+  "keywords": [
+    "docker",
+    "rabbitmq"
+  ],
+  "author": "Daniel Oliveira",
+  "dependencies": {
+    "standard-version": "^9.0.0"
+  }
+}

@@ -1,0 +1,125 @@
+version: "3.8"
+services:
+  rabbitmq-node-1:
+    image: "rabbitmq:3-management-alpine"
+    container_name: "rabbitmq-node-1"
+    hostname: "rabbitmq-node-1"
+    restart: "no"
+    environment:
+      - "RABBITMQ_ERLANG_COOKIE=6BD3DFC536EF1CBC71AF711B98E596B911C2C5F11342F83E011C04EB8A6C3413"
+      - "RABBITMQ_DEFAULT_USER=quest"
+      - "RABBITMQ_DEFAULT_PASS=quest"
+      - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-1"
+      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+    ports:
+      - "15671:15672"
+    volumes:
+      - "$PWD/storage/rabbitmq-node-1/lib:/var/lib/rabbitmq"
+      - "$PWD/storage/rabbitmq-node-1/log:/var/log/rabbitmq/log"
+    networks:
+      - netRabbitmq
+
+  rabbitmq-node-2:
+    image: "rabbitmq:3-management-alpine"
+    container_name: "rabbitmq-node-2"
+    hostname: "rabbitmq-node-2"
+    restart: "no"
+    environment:
+      - "RABBITMQ_ERLANG_COOKIE=6BD3DFC536EF1CBC71AF711B98E596B911C2C5F11342F83E011C04EB8A6C3413"
+      - "RABBITMQ_DEFAULT_USER=quest"
+      - "RABBITMQ_DEFAULT_PASS=quest"
+      - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-2"
+      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "CLUSTERED=true"
+      - "CLUSTER_WITH=rabbitmq-node-1"
+    ports:
+      - "15672:15672"
+    volumes:
+      - "$PWD/storage/rabbitmq-node-2/lib:/var/lib/rabbitmq"
+      - "$PWD/storage/rabbitmq-node-2/log:/var/log/rabbitmq/log"
+    networks:
+      - netRabbitmq
+    depends_on:
+      - rabbitmq-node-1
+    links:
+      - rabbitmq-node-1:rabbitmq-node-1
+
+  rabbitmq-node-3:
+    image: "rabbitmq:3-management-alpine"
+    container_name: "rabbitmq-node-3"
+    hostname: "rabbitmq-node-3"
+    restart: "no"
+    environment:
+      - "RABBITMQ_ERLANG_COOKIE=6BD3DFC536EF1CBC71AF711B98E596B911C2C5F11342F83E011C04EB8A6C3413"
+      - "RABBITMQ_DEFAULT_USER=quest"
+      - "RABBITMQ_DEFAULT_PASS=quest"
+      - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-3"
+      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "CLUSTERED=true"
+      - "CLUSTER_WITH=rabbitmq-node-1"
+    ports:
+      - "15673:15672"
+    volumes:
+      - "$PWD/storage/rabbitmq-node-3/lib:/var/lib/rabbitmq"
+      - "$PWD/storage/rabbitmq-node-3/log:/var/log/rabbitmq/log"
+    networks:
+      - netRabbitmq
+    depends_on:
+      - rabbitmq-node-1
+      - rabbitmq-node-2
+    links:
+      - rabbitmq-node-1:rabbitmq-node-1
+      - rabbitmq-node-2:rabbitmq-node-2
+
+  rabbitmq-node-4:
+    image: "rabbitmq:3-management-alpine"
+    container_name: "rabbitmq-node-4"
+    hostname: "rabbitmq-node-4"
+    restart: "no"
+    environment:
+      - "RABBITMQ_ERLANG_COOKIE=6BD3DFC536EF1CBC71AF711B98E596B911C2C5F11342F83E011C04EB8A6C3413"
+      - "RABBITMQ_DEFAULT_USER=quest"
+      - "RABBITMQ_DEFAULT_PASS=quest"
+      - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-4"
+      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "CLUSTERED=true"
+      - "CLUSTER_WITH=rabbitmq-node-1"
+    ports:
+      - "15674:15672"
+    volumes:
+      - "$PWD/storage/rabbitmq-node-4/lib:/var/lib/rabbitmq"
+      - "$PWD/storage/rabbitmq-node-4/log:/var/log/rabbitmq/log"
+    networks:
+      - netRabbitmq
+    depends_on:
+      - rabbitmq-node-1
+      - rabbitmq-node-2
+      - rabbitmq-node-3
+    links:
+      - rabbitmq-node-1:rabbitmq-node-1
+      - rabbitmq-node-2:rabbitmq-node-2
+      - rabbitmq-node-3:rabbitmq-node-3
+
+  haproxy-rabbitmq:
+    image: haproxy-rabbitmq-cluster:2.3.1
+    container_name: haproxy-rabbitmq
+    hostname: haproxy-rabbitmq
+    ports:
+      - "5672:5672"
+      - "1936:1936"
+    links:
+      - rabbitmq-node-1:rabbitmq-node-1
+      - rabbitmq-node-2:rabbitmq-node-2
+      - rabbitmq-node-3:rabbitmq-node-3
+      - rabbitmq-node-4:rabbitmq-node-4
+    depends_on:
+      - rabbitmq-node-1
+      - rabbitmq-node-2
+      - rabbitmq-node-3
+      - rabbitmq-node-4
+    networks:
+      - netRabbitmq
+
+networks:
+  netRabbitmq:
+    driver: bridge
