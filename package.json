@@ -1,6 +1,6 @@
 {
   "name": "cluster_rabbitmq_docker_compose",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Exemplo de clusterização do RabbitMQ com docker e proxy reverso",
   "scripts": {
     "release": "standard-version"
