@@ -1,4 +1,3 @@
-![CommonsRestAPI](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/workflows/CommonsRestAPI/badge.svg)
 ![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/cluster_rabbitmq_docker_compose.svg)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/cluster_rabbitmq_docker_compose.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/pulls)
 [![GitHub issues](https://img.shields.io/github/issues/danielso2007/cluster_rabbitmq_docker_compose.svg)](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/issues?q=is%3Aopen+is%3Aissue)
