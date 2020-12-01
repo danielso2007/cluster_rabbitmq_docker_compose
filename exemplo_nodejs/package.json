@@ -1,0 +1,15 @@
+{
+  "name": "rabbitmq_tutorials_javascript_nodejs",
+  "version": "1.0.0",
+  "description": "Exemplo em NodeJS para send e receive no RabbitMQ.",
+  "scripts": {},
+  "keywords": [
+    "docker",
+    "rabbitmq",
+    "nodejs"
+  ],
+  "author": "Daniel Oliveira",
+  "dependencies": {
+    "amqplib": "^0.6.0"
+  }
+}
