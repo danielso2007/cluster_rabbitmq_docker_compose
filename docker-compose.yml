@@ -10,12 +10,12 @@ services:
       - "RABBITMQ_DEFAULT_USER=quest"
       - "RABBITMQ_DEFAULT_PASS=quest"
       - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-1"
-      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "RABBITMQ_DEFAULT_VHOST=/"
     ports:
       - "15671:15672"
     volumes:
       - "$PWD/storage/rabbitmq-node-1/lib:/var/lib/rabbitmq"
-      - "$PWD/storage/rabbitmq-node-1/log:/var/log/rabbitmq/log"
+      - "$PWD/storage/rabbitmq-node-1/log:/var/log/rabbitmq"
     networks:
       - netRabbitmq
 
@@ -29,14 +29,14 @@ services:
       - "RABBITMQ_DEFAULT_USER=quest"
       - "RABBITMQ_DEFAULT_PASS=quest"
       - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-2"
-      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "RABBITMQ_DEFAULT_VHOST=/"
       - "CLUSTERED=true"
       - "CLUSTER_WITH=rabbitmq-node-1"
     ports:
       - "15672:15672"
     volumes:
       - "$PWD/storage/rabbitmq-node-2/lib:/var/lib/rabbitmq"
-      - "$PWD/storage/rabbitmq-node-2/log:/var/log/rabbitmq/log"
+      - "$PWD/storage/rabbitmq-node-2/log:/var/log/rabbitmq"
     networks:
       - netRabbitmq
     depends_on:
@@ -54,14 +54,14 @@ services:
       - "RABBITMQ_DEFAULT_USER=quest"
       - "RABBITMQ_DEFAULT_PASS=quest"
       - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-3"
-      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "RABBITMQ_DEFAULT_VHOST=/"
       - "CLUSTERED=true"
       - "CLUSTER_WITH=rabbitmq-node-1"
     ports:
       - "15673:15672"
     volumes:
       - "$PWD/storage/rabbitmq-node-3/lib:/var/lib/rabbitmq"
-      - "$PWD/storage/rabbitmq-node-3/log:/var/log/rabbitmq/log"
+      - "$PWD/storage/rabbitmq-node-3/log:/var/log/rabbitmq"
     networks:
       - netRabbitmq
     depends_on:
@@ -81,14 +81,14 @@ services:
       - "RABBITMQ_DEFAULT_USER=quest"
       - "RABBITMQ_DEFAULT_PASS=quest"
       - "RABBITMQ_NODENAME=rabbit@rabbitmq-node-4"
-      - "RABBITMQ_DEFAULT_VHOST=rabbitmq-node-1"
+      - "RABBITMQ_DEFAULT_VHOST=/"
       - "CLUSTERED=true"
       - "CLUSTER_WITH=rabbitmq-node-1"
     ports:
       - "15674:15672"
     volumes:
       - "$PWD/storage/rabbitmq-node-4/lib:/var/lib/rabbitmq"
-      - "$PWD/storage/rabbitmq-node-4/log:/var/log/rabbitmq/log"
+      - "$PWD/storage/rabbitmq-node-4/log:/var/log/rabbitmq"
     networks:
       - netRabbitmq
     depends_on:
