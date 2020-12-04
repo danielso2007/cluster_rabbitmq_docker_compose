@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/compare/v1.1.0...v1.2.0) (2020-12-04)
+
+
+### Features
+
+* Adicionando novas documentações e exemplos em Python. ([9ab7e1c](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/commit/9ab7e1cdc5a0e7ee4cab62051f74ea365a30e165))
+
 ## [1.1.0](https://github.com/danielso2007/cluster_rabbitmq_docker_compose/compare/v1.0.2...v1.1.0) (2020-12-01)
 
 
